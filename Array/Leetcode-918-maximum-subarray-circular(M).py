@@ -13,13 +13,14 @@ class Solution:
         maxsum = self.kadanesMax(nums)
         minsum = self.kadanesMin(nums)
 
-        result = max(total-minsum, maxsum) if maxsum > 0 else minsum
+        result = max(total - minsum, maxsum) if maxsum > 0 else minsum
         return result
+
     def kadanesMax(self, nums):
         maxsum = nums[0]
         cursum = 0
         for num in nums:
-            cursum = num if cursum < 0 else cursum+num
+            cursum = num if cursum < 0 else cursum + num
             maxsum = cursum if cursum > maxsum else maxsum
         return maxsum
 
@@ -27,15 +28,15 @@ class Solution:
         minsum = nums[0]
         cursum = 0
         for num in nums:
-            cursum = num if cursum > 0 else cursum+num
+            cursum = num if cursum > 0 else cursum + num
             minsum = cursum if cursum < minsum else minsum
         return minsum
 
 
 obj = Solution()
-nums = [5,1,2,-11,5]
+nums = [5, 1, 2, -11, 5]
 print(obj.maxSubarraySumCircular(nums))
-nums = [1,-2,3,-2]
+nums = [1, -2, 3, -2]
 print(obj.maxSubarraySumCircular(nums))
-nums = [5,-3,5]
+nums = [5, -3, 5]
 print(obj.maxSubarraySumCircular(nums))
