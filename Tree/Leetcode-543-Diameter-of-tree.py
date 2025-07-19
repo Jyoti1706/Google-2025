@@ -14,7 +14,7 @@ class Solution:
                 return 0
             left = solve(root.left)
             right = solve(root.right)
-            result[0] = max(result[0], left + right)
+            result[0] = max(result[0], left + right) # Edge count not root count
             return max(left, right) + 1
 
         result = [0]
